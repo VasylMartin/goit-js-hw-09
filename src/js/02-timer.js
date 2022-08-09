@@ -29,7 +29,7 @@ const options = {
               const delta = choosenDate - currentDate
               const timeComp = convertMs(delta)
               console.log(timeComp)
-              if (timeComp <= 1000) {
+              if (timeComp <= choosenDate) {
                   clearInterval(intervalId)
                   return
               }
