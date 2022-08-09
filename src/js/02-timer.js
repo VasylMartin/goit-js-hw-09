@@ -7,7 +7,7 @@ const daysQuantity = document.querySelector('[data-days]')
 const hoursQuantity = document.querySelector('[data-hours]')
 const minutesQuantity = document.querySelector('[data-minutes]')
 const secondsQuantity = document.querySelector('[data-seconds]')
-const currentDate = Date.now()
+
 
 startBtn.setAttribute('disabled', true)
 
@@ -17,13 +17,14 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-      if (selectedDates[0] < currentDate) {
+      if (selectedDates[0] < Date.now()) {
           window.alert("Please choose a date in the future")
           return
       }
       const choosenDate = selectedDates[0].getTime()
       startBtn.removeAttribute('disabled', true)
       function timer() {
+          const currentDate = Date.now()
           const intervalId = setInterval(() => {
               const delta = choosenDate - currentDate
               const timeComp = convertMs(delta)
@@ -65,3 +66,4 @@ function addLeadingZero(value) {
 }
 
 
+// console.log(convertMs(Date.now()))
