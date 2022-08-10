@@ -24,12 +24,13 @@ const options = {
       const choosenDate = selectedDates[0].getTime()
       startBtn.removeAttribute('disabled', true)
       function timer() {
-          const currentDate = Date.now()
+        //   const currentDate = Date.now()
           const intervalId = setInterval(() => {
+              const currentDate = Date.now()
               const delta = choosenDate - currentDate
               const timeComp = convertMs(delta)
               console.log(timeComp)
-              if (timeComp <= choosenDate) {
+              if (timeComp <= 0) {
                   clearInterval(intervalId)
                   return
               }
