@@ -37,7 +37,7 @@ function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
 
     if(shouldResolve){
-       resolve(`Fulfilled promise ${position} in ${delay}ms`)
+      resolve(`Fulfilled promise ${position} in ${delay}ms`)
     }
     else {
       reject(`Rejected promise ${position} in ${delay}ms`)
@@ -54,9 +54,7 @@ function callCreatePromises(firstDelay, step, amount) {
       createPromise(counter, firstDelay)
       .then(resolve => {  Notify.success(resolve); console.log(resolve)} )
       .catch(error => { Notify.failure(error); console.log(error) });
-    
     if(amount >= 2) {
-
         const timerId2 = setInterval(() => {
           counter += 1;
           timing += Number(step);
@@ -70,8 +68,6 @@ function callCreatePromises(firstDelay, step, amount) {
           .catch(error => { Notify.failure(error); console.log(error)});
     
         }, step)
-      
       }
-
     }, firstDelay)
 }
