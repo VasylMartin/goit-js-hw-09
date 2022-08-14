@@ -22,15 +22,19 @@ const options = {
           return
       }
       const choosenDate = selectedDates[0].getTime()
-      startBtn.removeAttribute('disabled', true)
-      function timer() {
-        //   const currentDate = Date.now()
+    startBtn.removeAttribute('disabled', true)
+    isActive = false
+    function timer() { 
+      if (isActive) {
+          return window.alert("Timer is already counting")
+        }
           const intervalId = setInterval(() => {
-              const currentDate = Date.now()
+            const currentDate = Date.now()
+            isActive = true
               const delta = choosenDate - currentDate
-              const timeComp = convertMs(delta)
-              console.log(timeComp)
-              if (timeComp <= 0) {
+              const timeRecounter = convertMs(delta)
+            console.log(timeRecounter)
+              if (delta < 1000) {
                   clearInterval(intervalId)
                   return
               }
@@ -49,7 +53,7 @@ function convertMs(ms) {
     const hour = minute * 60;
     const day = hour * 24;
 
-    const days = Math.floor(ms / day);
+    const days = addLeadingZero(Math.floor(ms / day));
     const hours = addLeadingZero(Math.floor((ms % day) / hour));
     const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
     const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
@@ -65,6 +69,3 @@ function convertMs(ms) {
 function addLeadingZero(value) {
     return String(value).padStart(2, '0')
 }
-
-
-// console.log(convertMs(Date.now()))
