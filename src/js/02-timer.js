@@ -30,7 +30,7 @@ const options = {
         }
           const intervalId = setInterval(() => {
             const currentDate = Date.now()
-            isActive = true
+            let isActive = true
               const delta = choosenDate - currentDate
               const timeRecounter = convertMs(delta)
             console.log(timeRecounter)
