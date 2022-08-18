@@ -36,7 +36,7 @@ const options = {
             console.log(timeRecounter)
               if (delta < 1000) {
                   clearInterval(intervalId)
-                  return
+                  return window.alert("Timer done ^^")
               }
           }, 1000)
       }
