@@ -23,7 +23,7 @@ const options = {
       }
       const choosenDate = selectedDates[0].getTime()
     startBtn.removeAttribute('disabled', true)
-    isActive = false
+    let isActive = false
     function timer() { 
       if (isActive) {
           return window.alert("Timer is already counting")
